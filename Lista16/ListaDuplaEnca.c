@@ -48,12 +48,15 @@ int list_free(List *li){
 int list_push_front(List *li, struct aluno al){
     if(li == NULL || li -> begin == NULL)
         return INVALID_NULL_POINTER;
+    
     List_no *node = malloc(sizeof(List_no));
     if(node == NULL)
-        return INVALID_NULL_POINTER;
+        return OUT_OF_MEMORY;
+
     node->data = al;
     node->prev = NULL;
     node->next = li-> begin;
+
     if(li->size == 0){
         node->next = NULL;
         li->begin = node;
@@ -71,12 +74,15 @@ int list_push_front(List *li, struct aluno al){
 int list_push_back(List *li, struct aluno al){
     if(li == NULL)
         return INVALID_NULL_POINTER;
+
     List_no *node = malloc(sizeof(List_no));
     if(node == NULL)
-        return INVALID_NULL_POINTER;
+        return OUT_OF_MEMORY;
+
     node->data = al;
     node->next = NULL;
     node->prev = li->end;
+
     if(li->size == 0){
         li->begin = node;
         li->end = node;
@@ -93,12 +99,16 @@ int list_push_back(List *li, struct aluno al){
 int list_insert(List *li, int pos, struct aluno al){
     if(li == NULL)
         return INVALID_NULL_POINTER;
+
     if(pos>li->size || pos<=0)
-        return OUT_OF_MEMORY;
+        return OUT_OF_RANGE;
+
     List_no *aux;
     List_no *node = malloc(sizeof(List_no));
+
     if(node == NULL)
         return INVALID_NULL_POINTER;
+
     if(pos == 1){
         node->data = al;
         node->prev = NULL;
@@ -132,8 +142,10 @@ int list_size(List *li){
 int list_pop_front(List *li){
     if(li == NULL || li->begin == NULL)
         return INVALID_NULL_POINTER;
+
     if(li->size == 0)
         return ELEM_NOT_FOUND;
+
     if(li->size == 1){
         free(li->begin);
         li->begin = NULL;
@@ -152,8 +164,10 @@ int list_pop_front(List *li){
 int list_pop_back(List *li){
     if(li == NULL || li->begin == NULL)
         return INVALID_NULL_POINTER;
+
     if(li->size == 0)
-        return ELEM_NOT_FOUND;
+        return OUT_OF_RANGE;
+
     if(li->size == 1){
         free(li->begin);
         li->begin = NULL;
@@ -172,8 +186,10 @@ int list_pop_back(List *li){
 int list_erase(List *li, int pos){
     if(li == NULL)
         return INVALID_NULL_POINTER;
+
     if(pos>li->size || pos<=0)
-        return OUT_OF_MEMORY;
+        return ELEM_NOT_FOUND;
+
     if(li->size == 1){
         free(li->begin);
         li->begin = NULL;
