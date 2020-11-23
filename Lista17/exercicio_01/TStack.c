@@ -1,4 +1,4 @@
-#include "..\ListaSequencial.h"
+#include "../ListaSequencial.h"
 #include "TStack.h"
 #include <stdlib.h>
 

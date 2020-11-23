@@ -1,4 +1,4 @@
-#include "..\aluno.h"
+#include "../aluno.h"
 #ifndef TStackh
 #define TStackh
 

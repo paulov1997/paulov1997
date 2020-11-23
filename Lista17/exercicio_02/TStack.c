@@ -1,4 +1,4 @@
-#include "..\lista_encadeada.h"
+#include "../ListaEncadeada.h"
 #include "TStack.h"
 #include <stdlib.h>
 

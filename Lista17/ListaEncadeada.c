@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista_encadeada.h"
+#include "ListaEncadeada.h"
 
 typedef struct List_node List_node;
 
