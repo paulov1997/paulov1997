@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "TQueue.h"
-#include "../aluno.h"
 
 int main(){
 	int valor,i;
@@ -17,14 +16,12 @@ int main(){
 	scanf("%d",&valor);
 	
 
-	TQueue* li = queue_create(valor);
-	printf("\nLista criada com sucesso, tamanho da lista: %d!",tamanho_lista(li));
+	DQueue* li = queue_create(valor);
+	printf("\nLista criada com sucesso, tamanho da lista: %d!",queue_size(li));
 	
 
-	
 
-
-      for(i=5;i<8;i++) {
+      for(i=1;i<2;i++) {
         	printf("\n\nInserindo dados no fim da lista!");
           queue_push(li,a[i]);
 
@@ -46,7 +43,7 @@ int main(){
 	printf("\n\nIniciando compactação");
 
 	queue_compact(li);
-	printf("\nFim da compactação, tamanho da lista: %d!",tamanho_lista(li));
+	printf("\nFim da compactação, tamanho da lista: %d!",queue_size(li));
 	
 	
 

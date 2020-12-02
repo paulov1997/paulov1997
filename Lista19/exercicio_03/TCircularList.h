@@ -25,4 +25,3 @@ typedef struct list List;
  // dado um número de matrícula, retornar a posição a lista 
  int list_get_pos(List *li, int nmat, int *pos); 
  int list_print(List *li); 
- int list_next (List *li, struct aluno *al)
