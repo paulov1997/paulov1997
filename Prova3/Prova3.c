@@ -19,8 +19,8 @@ int list_erase_even(List *li){
         free(node);
 
         }
-        node = node->next;
-       
+        node = node->next; // node foi apagado
+       // faltou o tratamento de begin/end
     }
    
     return 1;
@@ -62,7 +62,19 @@ int list_splice(List *dest, List *source, int pos) {
     return 1;
 }
 
-
+/*
+(cada item vale 2)
+1) fez teste de posição e nulos
+2
+2) Testou se a inserção é no início
+0
+3) Testou se a posição é depois do último elemento
+0
+4) verificou que é no meio da lista e percorreu a lista procurando a posição
+2
+5) Atualizou o tamanho das listas
+0
+*/
 //2
 
 
@@ -76,9 +88,9 @@ int verifica(char *s){
 					case ')':
 						if(stack_empty(pilha))
 							return 0;
-						stack_top(pilha, c);
+						stack_top(pilha, c); // &
 						if(c != '(')
-							return 0;
+							return 0; // sem liberar memória
 						stack_pop(pilha);
 							break;
 
@@ -96,3 +108,5 @@ int verifica(char *s){
     }   
 }
 
+
+// sem retornos.. pouco adaptado do que foi passado em aula
